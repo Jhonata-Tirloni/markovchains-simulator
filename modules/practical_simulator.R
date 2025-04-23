@@ -28,7 +28,7 @@ transition_probs <- split(bigram_df, bigram_df$word1)
 link_github <- tags$a(
   shiny::icon("github"),
   "Project's Github",
-  href = "https://github.com",
+  href = "https://github.com/Jhonata-Tirloni/markovchains-simulator",
   target = "_blank",
   class = "github-btn"
 )

@@ -1,7 +1,7 @@
 link_github <- tags$a(
   shiny::icon("github"),
   "Project's Github",
-  href = "https://github.com",
+  href = "https://github.com/Jhonata-Tirloni/markovchains-simulator",
   target = "_blank",
   class = "github-btn"
 )
@@ -103,21 +103,6 @@ home_ui <- function() {
                      font-size: 1.2rem;"),
           p("What is a Markov chain, how does it works and it's main concepts
             that we need to know.",
-            style = "font-size: 0.9rem;")
-        )
-      ),
-      actionButton(
-        "how_are_markov_chains_applied",
-        card_body(
-          card_image(
-            src="how_markov_chains_are_applied.png",
-            style = "display: block; margin: auto; width: 12rem;"
-          ),
-          p("How Markov chains are applied?",
-            style = "color: #006CB1;
-                     font-size: 1.2rem;"),
-          p("How we use the concept of Markov chains daily, and applied examples
-            of it's potential.",
             style = "font-size: 0.9rem;")
         )
       ),

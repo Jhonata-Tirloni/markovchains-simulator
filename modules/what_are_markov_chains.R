@@ -89,8 +89,6 @@ what_are_markov_chains <- function(current_page) {
           style = "font-size: 1.2rem;")
       )
     ),
-    
-    # SELECT A OPTION
     h1("Definition¹: Markov process",
        style = "font-size: 1.8rem; 
               font-weight: bold;
@@ -109,7 +107,7 @@ what_are_markov_chains <- function(current_page) {
     h4("Example¹:",
        style = "margin-left: 0.9rem;"),
     layout_columns(
-      col_widths=c(4,6),
+      col_widths=c(5,6),
       card(class = "shadow-none",
            card_body(
              card_image(
@@ -166,15 +164,7 @@ what_are_markov_chains <- function(current_page) {
     h4("Example²:",
        style = "margin-left: 0.9rem;"),
     layout_columns(
-      col_widths=c(4,6),
-      card(class = "shadow-none",
-           card_body(
-             card_image(
-               src="figure_2.png",
-               style = "display: block; margin: auto; width: 12rem;"
-             )
-           )
-      ),
+      col_widths=c(6,5),
       card(class = "shadow-none",
            card_body(
              p("On the Figure 2 example, you move from state 1 to state 2 with 
@@ -189,7 +179,107 @@ what_are_markov_chains <- function(current_page) {
                possible outcome, has of the last example we had a single state with 
                only two possible outcomes that would end the process."),
            )
+      ),
+      card(class = "shadow-none",
+           card_body(
+             card_image(
+               src="figure_2.png",
+               style = "display: block; margin: auto; width: 12rem;"
+             )
+           )
       )
+    ),
+    br(),
+    br(),
+    h1("Important properties and components",
+       style = "font-size: 1.8rem; 
+              font-weight: bold;
+              color: #2D2473;
+              margin-left: 0.9rem;"),
+    p("Now that we know what is a Markov process, it's main property called
+      the Markov Property and how they go altogether to make a Markov chain,
+      we must know one key propertie and one essential component of all this.",
+      style = "margin-left: 0.9rem;"),
+    h2("Component: Probability matrix",
+       style = "font-size: 1.8rem; 
+              font-weight: bold;
+              color: #2D2473;
+              margin-left: 0.9rem;"),
+    p("Whether it is a Markov process or a Markov chain, we need to define the 
+      probabilities of transitioning between states over time. This is done using 
+      the transition probability matrix. The transition matrix tells us, for each 
+      step n, the probabilities of moving from the current state to any other 
+      state in the process or chain Z. For instance, a given transition might 
+      occur with probability y, and another with probability 1−y, depending on 
+      the current state.",
+      style = "margin-left: 0.9rem;"),
+    h4("Example:",
+       style = "margin-left: 0.9rem;"),
+    layout_columns(
+      card(class = "shadow-none",
+           card_body(
+             p("Imagine that you work on a metereological station and, after a 
+               long process of data gathering and analysis you come to a conclusion 
+               that, for every sunny day you have a probability that, the next day, 
+               can be rainy. If we could draw that to a matrix for better visual 
+               understanding, we would end up with something of the likes of the 
+               figure 3. "),
+             p("This figure tells us that, the probability P that we can have a 
+               rainy day R being that today is a sunny day S is equal to 0,7 
+               or 70%."),
+             p("This way, is easy to prove that, or predict whats the probabilty 
+               to have a sunny day tomorrow, being that today was a rainy day 
+               (Figure 4), using the markovian property."),
+           )
+      ),
+      col_widths=c(6,5),
+      card(class = "shadow-none",
+           card_body(
+             card_image(
+               src="probability_matrix_example.png",
+               style = "display: block; margin: auto; width: 25rem;"
+             )
+           )
+      )
+    ),
+    h2("Propertie: Discrete and continuous time",
+       style = "font-size: 1.8rem; 
+              font-weight: bold;
+              color: #2D2473;
+              margin-left: 0.9rem;"),
+    p("A Markov chain can be discrete or continuous depending on how time is 
+      considered in the model. 
+      In a discrete-time Markov chain, changes in state happen at fixed time steps 
+      (e.g., every second, every day). We use a transition matrix to describe the 
+      probabilities of moving from one state to another at each step.
+      In a continuous-time Markov chain, changes can happen at any moment in time. 
+      Instead of a transition matrix, we use a rate matrix (also called a 
+      generator matrix) to describe the likelihood of transitioning between 
+      states over time.",
+      style = "margin-left: 0.9rem;"),
+    h4("Example:",
+       style = "margin-left: 0.9rem;"),
+    layout_columns(
+      card(class = "shadow-none",
+           card_body(
+             card_image(
+               src="time_example.png",
+               style = "display: block; margin: auto; width: 25rem;"
+             )
+           )
+      ),
+      card(class = "shadow-none",
+           card_body(
+             p("The choice between discrete and continuous time depends on the 
+               real-world process you're modeling. For example:"),
+             p("* If you're modeling steps in a board game or website clicks, 
+               discrete time makes sense."),
+             p("* If you're modeling events like machine failures or patient arrivals 
+               in a hospital, which can happen at any time, continuous time is 
+               more appropriate."),
+           )
+      ),
+      col_widths=c(6,5)
     ),
     tags$br(),
     tags$br(),

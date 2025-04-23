@@ -1,3 +1,5 @@
+source("modules/home_ui.R")
+
 link_github <- tags$a(
   shiny::icon("github"),
   "Project's Github",
@@ -13,10 +15,14 @@ link_contact <- tags$a(
   target = "_blank"
 )
 
+link_home <- actionLink(
+  "back_home",
+  shiny::icon("home")
+)
+
 
 how_markov_chains_are_applied <- function(current_page) {
   tagList(
-    
     # MAIN NAVBAR
     tags$head(
       tags$style(HTML("
@@ -54,13 +60,11 @@ how_markov_chains_are_applied <- function(current_page) {
     ),
     page_navbar(
       title = "Markov chains simulator",
-      nav_spacer(),
-      nav_item("Home",
+      nav_item(link_home,
                align = "right"),
       nav_spacer(),
       nav_item(link_contact, 
                align = "right"),
-      nav_item(),
       nav_item(link_github, 
                align = "right")
     ),
@@ -68,80 +72,23 @@ how_markov_chains_are_applied <- function(current_page) {
     # ABOUT
     card(
       class = "shadow-none",
-      card_title(
-        p("About this app",
-          style = "font-size: 1.8rem; font-weight: bold; color: #2D2473;"
-        )
-      ),
       card_body(
-        p("This web app has been developed as a part of a class about Markov Chain’s and its application for the master’s degree 
-               on applied computation at the Universidade Federal de Mato Grosso. Feel free to use and explore the app as you want.",
+        p("On this page, we’ll explore what a Markov process is, 
+          how it leads to the concept of a Markov chain, its basic structure and 
+          key feature—the Markov property—along with some simple examples.",
           style = "font-size: 1.2rem;"),
-        p("On the top right side of this homepage you will find the link to this app’s repository on github, in case you want 
-               to develop your own version of it. ",
+        p("Please note that Markov chains, as probability models, are part of a 
+          much broader field of statistics and mathematics, which this app does 
+          not fully cover. If you're curious and want to dive deeper into the topic, 
+          i highly recommend checking out the reference books listed on the Home page.",
+          style = "font-size: 1.2rem;"),
+        p("Also keep in mind that this is a simplified overview. Many important 
+          aspects of Markov processes and chains are not included here. Still, 
+          with the content presented, you’ll gain a general understanding of what 
+          the topic is about and how it works from a high-level perspective.",
           style = "font-size: 1.2rem;")
       )
     ),
-    
-    # SELECT A OPTION
-    h1("Select a Option",
-       style = "font-size: 1.6rem; 
-              font-weight: bold;
-              color: #2D2473;
-              margin-left: 0.9rem;"),
-    layout_columns(
-      fill = FALSE,
-      row_heights = c(1,1,1),
-      style = "margin-left: 1rem;
-             margin-right: 1rem;",
-      gap = "1.0rem",
-      actionButton(
-        "what_are_markov_chains",
-        card_body(
-          card_image(
-            src="markov_chain_example.png",
-            style = "display: block; margin: auto; width: 12rem;"
-          ),
-          p("What are markov chains?",
-            style = "color: #006CB1;
-                     font-size: 1.2rem;"),
-          p("What is a Markov chain, how does it works and it's main concepts
-            that we need to know.")
-        )
-      ),
-      actionButton(
-        "how_are_markov_chains_applied",
-        card_body(
-          card_image(
-            src="how_markov_chains_are_applied.png",
-            style = "display: block; margin: auto; width: 12rem;"
-          ),
-          p("How Markov chains are applied?",
-            style = "color: #006CB1;
-                     font-size: 1.2rem;"),
-          p("How we use the concept of Markov chains daily, and applied examples
-            of it's potential.")
-        )
-      ),
-      actionButton(
-        "keyboard_simulator",
-        card_body(
-          card_image(
-            src="keyboard_simulator.png",
-            style = "display: block; 
-                   margin: auto; 
-                   width: 12rem;"
-          ),
-          p("Practical simulator",
-            style = "color: #006CB1;
-                   font-size: 1.2rem;"),
-          p("Let's see how a Markov chain can be applied on our dear keyboards
-          with it's auto-correction!")
-        )
-      )
-    ),
-    tags$br(),
-    tags$br(),
     tags$br(),
     tags$br(),
     tags$br(),
@@ -156,46 +103,12 @@ how_markov_chains_are_applied <- function(current_page) {
              margin-left: 0.9rem;
             "
     ),
-    layout_columns(
-      actionButton(
-        "bibliography_mc_mt",
-        card_image(
-          src = "bibliography_mc_mt.png",
-          style = "
-                 display: block;
-                 margin: auto;
-                 width: 25rem;
-                "
-        )
-      ),
-      actionButton(
-        "bibliography_mc",
-        card_image(
-          src = "bibliography_mc.png",
-          style = "
-                 display: block;
-                 margin: auto;
-                 width: 25rem;
-                "
-        )
-      ),
-      actionButton(
-        "bibliography_pc_p",
-        card_image(
-          src = "bibliography_pc_p.png",
-          style = "
-                 display: block;
-                 margin: auto;
-                 width: 25rem;
-                "
-        )
-      )
-    ),
     tags$br(),
     tags$br(),
     # FOOTER
     tags$div(
-      tags$img(src = "Footer.png", style = "width: 100%; height: auto; padding: 0; margin: 0;"),
+      tags$img(src = "Footer.png", style = "width: 70%; height: auto; padding: 0; margin: 0;"),
       style = "padding: 0; margin: 0; text-align: center;"
-    ))
+    )
+  )
 }

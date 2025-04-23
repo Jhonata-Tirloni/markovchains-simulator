@@ -11,7 +11,6 @@ server <- function(input, output, session) {
     switch(current_page(),
            "home" = home_ui(),
            "about_markov_chains" = what_are_markov_chains(current_page),
-           "applied_markov_chains" = how_markov_chains_are_applied(current_page),
            "keyboard_markov_chains" = practical_simulator(current_page)
     )
   })
@@ -20,10 +19,6 @@ server <- function(input, output, session) {
   
   observeEvent(input$what_are_markov_chains, {
     current_page("about_markov_chains")
-  })
-  
-  observeEvent(input$how_are_markov_chains_applied, {
-    current_page("applied_markov_chains")
   })
   
   observeEvent(input$keyboard_simulator, {
